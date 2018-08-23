@@ -64,7 +64,7 @@ export default class HomeScreen extends Component{
          onPress={()=>{
            this.props.navigation.navigate('View',{
              id:item.id,
-             headerTitle:item.name,
+             headerTitle:item.title,
              refresh:this._query,
            })
          }}

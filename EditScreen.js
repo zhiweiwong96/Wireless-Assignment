@@ -32,10 +32,8 @@ let SQLite=require('react-native-sqlite-storage');
 
 type Props={};
 export default class EditScreen extends Component<Props>{
-  static navigationOptions=({navigation})=>{
-    return{
-    title:'Edit'+navigation.getParam('headerTitle')
-    };
+  static navigationOptions={
+    title:'Edit Task',
   };
 
   constructor(props){
