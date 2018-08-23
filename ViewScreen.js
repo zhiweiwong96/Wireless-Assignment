@@ -63,7 +63,7 @@ export default class ViewScreen extends Component<Props>{
   }
 
   _delete(){
-    Alert.alert('Are you sure you want to delete task', ''+ this.state.task.title +'?', [
+    Alert.alert('Are you confirm to delete task', ''+ this.state.task.title +'?', [
       {
         text:'No',
         onPress:()=>{},

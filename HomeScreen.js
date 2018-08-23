@@ -38,7 +38,7 @@ export default class HomeScreen extends Component{
   }
   _query(){
     this.db.transaction((tx)=>{
-      tx.executeSql('SELECT * FROM tasks ORDER BY id',[],(tx, results)=>{
+      tx.executeSql('SELECT * FROM tasks ORDER BY date',[],(tx, results)=>{
         this.setState({
           tasks: results.rows.raw(),
         })

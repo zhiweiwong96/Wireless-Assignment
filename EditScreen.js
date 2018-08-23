@@ -65,8 +65,8 @@ export default class EditScreen extends Component<Props>{
         tx.executeSql('SELECT * FROM tasks WHERE id=?',[this.state.taskId], (tx, results)=>{
           if(results.rows.length){
             this.setState({
-              name:results.rows.item(0).title,
-              city:results.rows.item(0).description,
+              title:results.rows.item(0).title,
+              description:results.rows.item(0).description,
               date:new Date(results.rows.item(0).date),
               dateText: new Date(results.rows.item(0).date).formatted(),
             })
@@ -134,7 +134,7 @@ export default class EditScreen extends Component<Props>{
 
             <InputWithLabel style={styles.input}
               label={'Description'}
-              value={this.state.city}
+              value={this.state.description}
               onChangeText={(description)=>{this.setState({description})}}
               orientation={'vertical'}
             />
