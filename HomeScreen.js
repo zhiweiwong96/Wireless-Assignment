@@ -28,7 +28,7 @@ export default class HomeScreen extends Component{
   constructor(props){
     super(props)
     this.state={
-      places:[],
+      tasks:[],
     };
     this._query=this._query.bind(this);
     this.db=SQLite.openDatabase({name:'tasksdb', createFromLocation:'~db.sqlite'}, this.openDb, this.errorDb);
@@ -40,7 +40,7 @@ export default class HomeScreen extends Component{
     this.db.transaction((tx)=>{
       tx.executeSql('SELECT * FROM tasks ORDER BY id',[],(tx, results)=>{
         this.setState({
-          places: results.rows.raw(),
+          tasks: results.rows.raw(),
         })
       })
     });

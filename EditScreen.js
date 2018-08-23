@@ -53,7 +53,7 @@ export default class EditScreen extends Component<Props>{
     this._query=this._query.bind(this);
     this._update=this._update.bind(this);
 
-    this.db=SQLite.openDatabase({name:'taskdb', createFromLocation:'~db.sqlite'}, this.openDb, this.errorDb);
+    this.db=SQLite.openDatabase({name:'tasksdb', createFromLocation:'~db.sqlite'}, this.openDb, this.errorDb);
   }
 
     componentDidMount(){

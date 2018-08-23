@@ -45,12 +45,12 @@ export default class CreateScreen extends Component <Props>{
     };
 
     this._insert=this._insert.bind(this);
-    this.db=SQLite.openDatabase({name:'taskdb', createFromLocation:'~db.sqlite'}, this.openDb, this.errorDb);
+    this.db=SQLite.openDatabase({name:'tasksdb', createFromLocation:'~db.sqlite'}, this.openDb, this.errorDb);
   }
 
   _insert(){
     this.db.transaction((tx)=>{
-      tx.executeSql('INSERT INTO tasks(name, city, date)VALUES(?,?,?)',[
+      tx.executeSql('INSERT INTO tasks(title, description, date)VALUES(?,?,?)',[
         this.state.title,
         this.state.description,
         this.state.date,

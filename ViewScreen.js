@@ -55,7 +55,7 @@ export default class ViewScreen extends Component<Props>{
       tx.executeSql('SELECT * FROM tasks WHERE id=?', [this.state.taskId], (tx, results)=>{
         if(results.rows.length){
           this.setState({
-            place:results.rows.item(0),
+            task:results.rows.item(0),
           })
         }
       })
@@ -72,7 +72,7 @@ export default class ViewScreen extends Component<Props>{
         text:'Yes',
         onPress:()=>{
           this.db.transaction((tx)=>{
-            tx.executeSql('DELETE FROM places WHERE id=?',[this.state.taskId])
+            tx.executeSql('DELETE FROM tasks WHERE id=?',[this.state.taskId])
           });
           this.props.navigation.getParam('refresh')();
           this.props.navigation.goBack();
@@ -106,7 +106,7 @@ export default class ViewScreen extends Component<Props>{
 
           <InputWithLabel style={styles.output}
              label={'Date'}
-             value={place?new Date(place.date).toDateString():''}
+             value={task?new Date(task.date).toDateString():''}
              orientation={'vertical'}
              editable={false}
           />
